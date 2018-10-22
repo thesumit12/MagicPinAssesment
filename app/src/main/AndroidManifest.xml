@@ -30,6 +30,10 @@
         <activity android:name=".view.SearchActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName=".view.mainActivity.MainActivity"/>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="7b5dd7ac830048f208824bb2efe70046f4ae2be3" />
     </application>
 
 </manifest>

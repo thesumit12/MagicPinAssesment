@@ -20,7 +20,8 @@ fun Context.createProgressBar(layout: RelativeLayout): ProgressBar{
 fun Context.loadImageFromUrl(image_url: String, imageView: ImageView){
     Glide.with(this).load("https://image.tmdb.org/t/p/original$image_url")
             .apply(RequestOptions().diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
-                    .override(600, 200))
+                    .override(600, 200)
+                    .error(R.mipmap.ic_error_round))
             .into(imageView)
 }
 

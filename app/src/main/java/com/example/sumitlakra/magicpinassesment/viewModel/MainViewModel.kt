@@ -9,29 +9,29 @@ import com.example.sumitlakra.magicpinassesment.view.base.BaseViewModel
 
 class MainViewModel(application: Application) : BaseViewModel(application) {
 
-    private lateinit var movies: MutableLiveData<List<Movie>>
-    private lateinit var popularMovieList: MutableLiveData<List<Movie>>
-    private lateinit var upComingMovieList: MutableLiveData<List<Movie>>
+    private var movies: MutableLiveData<List<Movie>>? = null
+    private var popularMovieList: MutableLiveData<List<Movie>>? = null
+    private var upComingMovieList: MutableLiveData<List<Movie>>? = null
 
     fun getTopRatedMovies(): LiveData<List<Movie>>{
-        if (!::movies.isInitialized){
+        if (movies == null){
             movies = getDataManager().getTopRatedMovies()
         }
-        return movies
+        return movies!!
     }
 
     fun getPopularMovies(): LiveData<List<Movie>>{
-        if (!::popularMovieList.isInitialized){
+        if (popularMovieList == null){
             popularMovieList = getDataManager().getPopularMovies()
         }
-        return popularMovieList
+        return popularMovieList!!
     }
 
     fun getUpcomingMovies(): LiveData<List<Movie>>{
-        if (!::upComingMovieList.isInitialized){
+        if (upComingMovieList == null){
             upComingMovieList = getDataManager().getUpcomingMovies()
         }
-        return upComingMovieList
+        return upComingMovieList!!
     }
 
     fun saveMovies( movieList: List<Movie>){

@@ -13,6 +13,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ProgressBar
+import com.crashlytics.android.Crashlytics
 import com.example.sumitlakra.magicpinassesment.R
 import com.example.sumitlakra.magicpinassesment.createProgressBar
 import com.example.sumitlakra.magicpinassesment.data.model.Movie
@@ -21,6 +22,7 @@ import com.example.sumitlakra.magicpinassesment.view.DetailActivity
 import com.example.sumitlakra.magicpinassesment.view.SearchActivity
 import com.example.sumitlakra.magicpinassesment.view.base.BaseActivity
 import com.example.sumitlakra.magicpinassesment.viewModel.MainViewModel
+import io.fabric.sdk.android.Fabric
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -40,6 +42,8 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+
+        Fabric.with(this, Crashlytics())
 
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
